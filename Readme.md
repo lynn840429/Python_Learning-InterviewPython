@@ -184,7 +184,12 @@ print a  # [1]
 
 ## 2 Python中的元类(metaclass)
 
-这个非常的不常用,但是像ORM这种复杂的结构还是会需要的,详情请看:http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
+这个非常的不常用,但是像ORM这种复杂的结构还是会需要的,详情请看:
+* http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
+* https://dboyliao.medium.com/%E6%B7%BA%E8%AB%87-python-metaclass-dfacf24d6dd5
+* https://wiki.jikexueyuan.com/project/explore-python/Class/metaclass.html
+* http://puremonkey2010.blogspot.com/2015/02/python-python-metaclass.html
+
 
 ## 3 @staticmethod和@classmethod
 
@@ -222,6 +227,9 @@ a=A()
 更多关于这个问题:
 1. http://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
 2. https://realpython.com/blog/python/instance-class-and-static-methods-demystified/
+
+* https://zhuanlan.zhihu.com/p/28010894
+
 ## 4 类变量和实例变量
 
 **类变量：**
