@@ -337,6 +337,10 @@ AttributeError: myClass instance has no attribute '__superprivate'
 
 `__foo`:这个有真正的意义:解析器用`_classname__foo`来代替这个名字,以区别和其他类相同的命名,它无法直接像公有成员一样随便访问,通过对象名._类名__xxx这样的方式可以访问.
 
+* _xxx 这表示这是一个保护成员（属性或者方法），它不能用from module import * 导入，其他方面和公有一样访问； 
+* __xxx 这表示这是一个私有成员，它无法直接像公有成员一样随便访问（比如直接print阿修改阿），当然，要想访问也可以，通过对象名._类名__xxx这样的方式可以访问； 
+* __xxx__ 这表示这是一个特殊成员，所谓特殊，就是例如__init__() __del__() __call__()这些niubi哄哄的特殊方法
+
 详情见:http://stackoverflow.com/questions/1301346/the-meaning-of-a-single-and-a-double-underscore-before-an-object-name-in-python
 
 或者: http://www.zhihu.com/question/19754941
@@ -344,7 +348,27 @@ AttributeError: myClass instance has no attribute '__superprivate'
 ## 8 字符串格式化:%和.format
 
 .format在许多方面看起来更便利.对于`%`最烦人的是它无法同时传递一个变量和元组.你可能会想下面的代码不会有什么问题:
+```python
+ #!/usr/bin/python
+ sub1 = "python string!"
+ sub2 = "an arg"
 
+ sub_a = "i am a %s" % sub1
+ sub_b = "i am a {0}".format(sub1)
+ sub_c = f"i am a {sub1}"
+
+ arg_a = "with %(kwarg)s!" % {'kwarg':sub2}
+ arg_b = "with {kwarg}!".format(kwarg=sub2)
+ arg_c = f"with {sub2}!"
+
+ print(sub_a)    # "i am a python string!"
+ print(sub_b)    # "i am a python string!"
+ print(sub_c)    # "i am a python string!"
+
+ print(arg_a)    # "with an arg!"
+ print(arg_b)    # "with an arg!"
+ print(arg_c)    # "with an arg!"
+```
 ```
 "hi there %s" % name
 ```
@@ -382,7 +406,64 @@ http://stackoverflow.com/questions/5082452/python-string-formatting-vs-format
 >>> g
 <generator object <genexpr> at 0x0000028F8B774200>
 ```
+
 通过列表生成式，可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含百万元素的列表，不仅是占用很大的内存空间，如：我们只需要访问前面的几个元素，后面大部分元素所占的空间都是浪费的。因此，没有必要创建完整的列表（节省大量内存空间）。在Python中，我们可以采用生成器：边循环，边计算的机制—>generator
+
+### Iterables
+When you create a list, you can read its items one by one. Reading its items one by one is called iteration:
+```python
+mylist = [1, 2, 3]
+for i in mylist:
+    print(i)
+1
+2
+3
+```
+mylist is an iterable. When you use a list comprehension, you create a list, and so an iterable:
+```python
+mylist = [x*x for x in range(3)]
+for i in mylist:
+    print(i)
+0
+1
+4
+```
+Everything you can use "for... in..." on is an iterable; lists, strings, files...
+
+These iterables are handy because you can read them as much as you wish, but you store all the values in memory and this is not always what you want when you have a lot of values.
+
+### Generators
+Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly:
+```python
+mygenerator = (x*x for x in range(3))
+for i in mygenerator:
+    print(i)
+0
+1
+4
+```
+It is just the same except you used () instead of []. BUT, you cannot perform for i in mygenerator a second time since generators can only be used once: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one.
+
+### Yield
+yield is a keyword that is used like return, except the function will return a generator.
+```python
+def create_generator():
+    mylist = range(3)
+    for i in mylist:
+        yield i*i
+
+mygenerator = create_generator() # create a generator
+print(mygenerator) # mygenerator is an object!
+<generator object create_generator at 0xb7555c34>
+for i in mygenerator:
+    print(i)
+0
+1
+4
+```
+Here it's a useless example, but it's handy when you know your function will return a huge set of values that you will only need to read once.
+* https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+* https://ithelp.ithome.com.tw/articles/10196328
 
 ## 10 `*args` and `**kwargs`
 
