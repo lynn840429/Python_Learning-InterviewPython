@@ -524,9 +524,27 @@ http://stackoverflow.com/questions/3394835/args-and-kwargs
 
 装饰器是一个很著名的设计模式，经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、事务处理等。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量函数中与函数功能本身无关的雷同代码并继续重用。概括的讲，**装饰器的作用就是为已经存在的对象添加额外的功能。**
 
-这个问题比较大,推荐: http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python
+簡單解釋裝飾器的功用就是，再不更改程序的狀況下能夠附加功能。在介紹如何實作裝飾器前，先告訴大家如何使用。
 
-中文: http://taizilongxu.gitbooks.io/stackoverflow-about-python/content/3/README.html
+    1. 函式可以像普通變數一樣，做為函式的引數或返回值進行傳遞。
+    2. 函式內部可以定義另外一個函式，這樣做的目的可以隱藏函式功能的實現。
+    3. 閉包實際也是一種函式定義形式。
+    4. 閉包定義規則是在外部函式中定義一個內部函式，內部函式使用外部函式的變數，並返回內部函式的引用。
+    5. 裝飾器的作用是在不改變現有函式基礎上，為函式增加功能。
+    6. 通過在已有函式前，通過@閉包函式名的形式來給已有函式新增裝飾器。
+    7. 一個裝飾器可以為多個函式提供裝飾功能，只需要在被裝飾的函式前加 @xxx 即可。
+    8. 通過類也可以實現裝飾器效果，需要重寫 init 和 call 函式。
+    9. 類實現的裝飾器在裝飾函式後，原來的函式引用不在是函式，而是裝飾類的物件。
+    10. 一個函式也可以被多個裝飾器所裝飾。
+
+
+这个问题比较大,推荐: 
+* http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python
+
+中文: 
+* https://medium.com/%E5%AE%85%E7%94%B7%E9%9B%9C%E5%AD%B8%E7%AD%86%E8%A8%98/python-decorator-%E8%A3%9D%E9%A3%BE%E5%99%A8%E5%88%9D%E6%8E%A2-1-8d4a0920b2b8
+* https://ithelp.ithome.com.tw/articles/10200763
+* https://www.itread01.com/content/1544781184.html
 
 ## 12 鸭子类型
 
