@@ -696,6 +696,8 @@ my_singleton.foo()
 
 ```
 **[单例模式伯乐在线详细解释](http://python.jobbole.com/87294/)**
+* https://iter01.com/333063.html
+* https://zhuanlan.zhihu.com/p/37534850
 
 ## 17 Python中的作用域
 
@@ -720,7 +722,8 @@ Python 中，一个变量的作用域总是由在代码中被赋值的地方所�
 简单点说协程是进程和线程的升级版,进程和线程都面临着内核态和用户态的切换问题而耗费许多切换时间,而协程就是用户自己控制切换的时机,不再需要陷入系统的内核态.
 
 Python里最常见的yield就是协程的思想!可以查看第九个问题.
-
+* https://jimmy-huang.medium.com/python-asyncio-%E5%8D%94%E7%A8%8B-%E4%BA%8C-e717018bb984
+* https://www.maxlist.xyz/2020/03/29/python-coroutine/
 
 ## 20 闭包
 
@@ -737,6 +740,9 @@ Python里最常见的yield就是协程的思想!可以查看第九个问题.
 重点是函数运行后并不会被撤销,就像16题的instance字典一样,当函数运行完后,instance并不被销毁,而是继续留在内存空间里.这个功能类似类里的类变量,只不过迁移到了函数上.
 
 闭包就像个空心球一样,你知道外面和里面,但你不知道中间是什么样.
+* https://www.cupoy.com/collection/00000167E4306181000000026375706F795F72656C656173654355/00000167EE98180E000000076375706F795F72656C656173654349
+* https://jenifers001d.github.io/2019/12/07/Python/learning-Python-day8/
+* https://www.itread01.com/content/1549873281.html
 
 ## 21 lambda函数
 
