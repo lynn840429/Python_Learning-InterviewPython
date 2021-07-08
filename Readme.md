@@ -849,7 +849,7 @@ https://www.gushiciku.cn/pl/pmzO/zh-tw
 
 ## 26 Python的is
 
-is是对比地址,==是对比值
+!!! is是对比地址,==是对比值 !!!
 
 ## 27 read,readline和readlines
 
@@ -859,6 +859,8 @@ is是对比地址,==是对比值
 
 ## 28 Python2和3的区别
 推荐：[Python 2.7.x 与 Python 3.x 的主要差异](http://chenqx.github.io/2014/11/10/Key-differences-between-Python-2-7-x-and-Python-3-x/)
+* https://blog.csdn.net/ljl6158999/article/details/78983725
+* https://www.runoob.com/python/python-2x-3x.html
 
 ## 29 super init
 super() lets you avoid referring to the base class explicitly, which can be nice. But the main advantage comes with multiple inheritance, where all sorts of fun stuff can happen. See the standard docs on super if you haven't already.
@@ -876,6 +878,17 @@ for i in xrange(0, 20):
 What is the difference between range and xrange functions in Python 2.X?
  range creates a list, so if you do range(1, 10000000) it creates a list in memory with 9999999 elements.
  xrange is a sequence object that evaluates lazily.
+
+In Python 2.x:
+
+    range creates a list, so if you do range(1, 10000000) it creates a list in memory with 9999999 elements.
+
+    xrange is a sequence object that evaluates lazily.
+
+In Python 3:
+
+    range does the equivalent of Python 2's xrange. To get the list, you have to explicitly use list(range(...)).
+    xrange no longer exists.
 
 http://stackoverflow.com/questions/94935/what-is-the-difference-between-range-and-xrange-functions-in-python-2-x
 
