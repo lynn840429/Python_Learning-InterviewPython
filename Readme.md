@@ -379,7 +379,7 @@ AttributeError: myClass instance has no attribute '__superprivate'
 "hi there %s" % (name,)   # 提供一个单元素的数组而不是一个参数
 ```
 
-但是有点丑..format就没有这些问题.你给的第二个问题也是这样,.format好看多了.
+但是有点丑.format就没有这些问题.你给的第二个问题也是这样,.format好看多了.
 
 你为什么不用它?
 
@@ -901,6 +901,8 @@ http://stackoverflow.com/questions/94935/what-is-the-difference-between-range-an
 这个问题可能有点深入了,但相信能回答出这个问题是对I/O多路复用有很好的了解了.其中tornado使用的就是epoll的.
 
 [selec,poll和epoll区别总结](http://www.cnblogs.com/Anker/p/3265058.html)
+* https://zhuanlan.zhihu.com/p/272891398
+* https://segmentfault.com/a/1190000003063859
 
 基本上select有3个缺点:
 
@@ -1148,7 +1150,7 @@ post: [RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1](http://tools.ietf.org
 | 目的   | 跟踪会话，也可以保存用户偏好设置或者保存用户名密码等 | 跟踪会话    |
 | 安全性  | 不安全                        | 安全      |
 
-session技术是要使用到cookie的，之所以出现session技术，主要是为了安全。
+session技术是要使用到cookie的，之所以出现session技术，`主要是为了安全`。
 
 ## 7 apache和nginx的区别
 
@@ -1464,10 +1466,11 @@ l2 = []
 ```
 
 sorted排序并且用列表推导式.
-
+```python
 l = ['b','c','d','b','c','a','a']
 [single.append(i) for i in sorted(l) if i not in single]
 print single
+```
 
 ## 6 链表成对调换
 
